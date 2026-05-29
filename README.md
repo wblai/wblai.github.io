@@ -1,2 +1,176 @@
 # wblai.github.io
-my-website
+# 创建my-homepage目录  
+if not os.path.exists('my-homepage'):  
+    os.makedirs('my-homepage')  
+  
+# 生成HTML内容  
+html_content = '''<!DOCTYPE html>  
+<html lang="zh-CN">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>我的个人主页</title>  
+    <script src="https://cdn.tailwindcss.com"></script>  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">  
+    <style>  
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap');  
+        body { font-family: 'Noto Sans SC', sans-serif; }  
+        .bg-gradient { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }  
+        .bg-blur {  
+            background: rgba(255, 255, 255, 0.8);  
+            backdrop-filter: blur(10px);  
+            border: 1px solid rgba(255, 255, 255, 0.2);  
+        }  
+        .text-gradient { background-image: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }  
+        .bg-dots {  
+            background-image:   
+                radial-gradient(#667eea 1px, transparent 1px),  
+                radial-gradient(#764ba2 1px, transparent 1px);  
+            background-size: 30px 30px;  
+            background-position: 0 0, 15px 15px;  
+            background-repeat: repeat;  
+        }  
+    </style>  
+</head>  
+<body class="bg-dots min-h-screen flex items-center justify-center p-4">  
+    <div class="relative overflow-hidden max-w-4xl w-full rounded-3xl shadow-2xl">  
+        <!-- 背景装饰元素 -->  
+        <div class="absolute top-0 left-0 w-64 h-64 bg-indigo-200 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>  
+        <div class="absolute top-0 right-0 w-64 h-64 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>  
+        <div class="absolute bottom-0 left-1/3 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>  
+          
+        <!-- 主内容区域 -->  
+        <div class="bg-blur relative z-10">  
+            <!-- 顶部装饰 -->  
+            <div class="bg-gradient h-4"></div>  
+              
+            <div class="p-8">  
+                <!-- 个人信息头部 -->  
+                <div class="flex flex-col md:flex-row gap-8 items-center">  
+                    <!-- 头像区域 -->  
+                    <div class="relative">  
+                        <div class="w-44 h-44 rounded-2xl overflow-hidden border-4 border-white shadow-lg">  
+                            <div class="bg-gradient-to-br from-indigo-100 to-purple-100 w-full h-full flex items-center justify-center">  
+                                <div class="text-5xl font-bold text-indigo-700">王</div>  
+                            </div>  
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 flex items-end p-4">  
+                                <p class="text-white text-sm font-medium">华中农业大学 · 研究生</p>  
+                            </div>  
+                        </div>  
+                        <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-indigo-600 text-white px-4 py-2 rounded-full text-xs shadow-md flex items-center gap-1">  
+                            <i class="fas fa-leaf"></i> 点击查看  
+                        </div>  
+                    </div>  
+                      
+                    <!-- 文字信息 -->  
+                    <div class="flex-1">  
+                        <div class="flex items-center gap-3 mb-4">  
+                            <h1 class="text-3xl md:text-4xl font-bold text-gradient bg-clip-text text-transparent">  
+                                王宝丽  
+                            </h1>  
+                            <div class="flex gap-1">  
+                                <span class="bg-indigo-100 text-indigo-800 px-3 py-1 rounded-full text-sm font-medium">研究生</span>  
+                                <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-medium">学术新秀</span>  
+                            </div>  
+                        </div>  
+                          
+                        <div class="space-y-3">  
+                            <div class="flex items-center gap-2 text-gray-700">  
+                                <i class="fas fa-graduation-cap text-indigo-600"></i>  
+                                <span class="font-medium">华中农业大学 · 资源利用与植物保护专业</span>  
+                            </div>  
+                              
+                            <div class="flex items-center gap-2 text-gray-700">  
+                                <i class="fas fa-book-open text-purple-600"></i>  
+                                <span class="tracking-wide">学号: 2025303120129</span>  
+                            </div>  
+                              
+                            <div class="flex flex-wrap gap-2 mt-3">  
+                                <span class="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1">  
+                                    <i class="fas fa-camera"></i> 摄影艺术  
+                                </span>  
+                                <span class="bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-1">  
+                                    <i class="fas fa-feather"></i> 羽毛球运动  
+                                </span>  
+                                <span class="bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium">  
+                                    <i class="fas fa-leaf"></i> 生态保护  
+                                </span>  
+                            </div>  
+                        </div>  
+                    </div>  
+                </div>  
+                  
+                <!-- 主要内容区域 -->  
+                <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">  
+                    <!-- 关于我 -->  
+                    <div class="bg-white/90 p-6 rounded-2xl shadow-sm border border-indigo-100">  
+                        <h2 class="text-xl font-semibold text-indigo-800 mb-4 flex items-center gap-2">  
+                            <i class="fas fa-envelope"></i> 关于我  
+                        </h2>  
+                        <p class="text-gray-700 leading-relaxed">  
+                            我是华中农业大学资源利用与植物保护专业的研究生，专注于生态修复与资源可持续利用领域的研究。  
+                            在科研工作中，我致力于探索植物与环境的相互作用机制，为生态保护提供科学依据。  
+                        </p>  
+                        <p class="text-gray-700 leading-relaxed mt-3">  
+                            业余时间，我热爱羽毛球运动，享受竞技带来的激情与团队协作的乐趣；  
+                            也喜欢用相机捕捉自然与人文的美好瞬间，记录生活中的诗意与远方。  
+                        </p>  
+                    </div>  
+                      
+                    <!-- 教育背景 -->  
+                    <div class="bg-white/90 p-6 rounded-2xl shadow-sm border border-purple-100">  
+                        <h2 class="text-xl font-semibold text-purple-800 mb-4 flex items-center gap-2">  
+                            <i class="fas fa-graduation-cap"></i> 教育背景  
+                        </h2>  
+                        <div class="space-y-4">  
+                            <div>  
+                                <h3 class="font-medium text-gray-800">华中农业大学</h3>  
+                                <p class="text-sm text-gray-500">资源利用与植物保护专业 · 研究生</p>  
+                                <p class="text-sm text-gray-500 mt-1">2025 - 至今</p>  
+                            </div>  
+                            <div class="relative pt-4">  
+                                <div class="absolute left-0 top-0 h-full w-px bg-gradient-to-b from-transparent via-purple-300 to-transparent"></div>  
+                                <div class="relative pl-6">  
+                                    <div class="absolute -left-3.5 top-1 w-3 h-3 rounded-full bg-purple-500"></div>  
+                                    <h3 class="font-medium text-gray-800">本科院校</h3>  
+                                    <p class="text-sm text-gray-500">生态学专业 · 学士学位</p>  
+                                    <p class="text-sm text-gray-500 mt-1">2021 - 2025</p>  
+                                </div>  
+                            </div>  
+                        </div>  
+                    </div>  
+                      
+                    <!-- 技能与成就 -->  
+                    <div class="bg-white/90 p-6 rounded-2xl shadow-sm border border-blue-100 md:col-span-2">  
+                        <h2 class="text-xl font-semibold text-blue-800 mb-4 flex items-center gap-2">  
+                            <i class="fas fa-award"></i> 技能与成就  
+                        </h2>  
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">  
+                            <div class="bg-blue-50 p-3 rounded-lg text-center">  
+                                <div class="text-blue-600 font-medium">研究技能</div>  
+                                <div class="text-sm text-gray-600 mt-1">生态建模/数据分析</div>  
+                            </div>  
+                            <div class="bg-green-50 p-3 rounded-lg text-center">  
+                                <div class="text-green-600 font-medium">实验技术</div>  
+                                <div class="text-sm text-gray-600 mt-1">植物生理/土壤分析</div>  
+                            </div>  
+                            <div class="bg-purple-50 p-3 rounded-lg text-center">  
+                                <div class="text-purple-600 font-medium">运动成就</div>  
+                                <div class="text-sm text-gray-600 mt-1">校羽毛球赛亚军</div>  
+                            </div>  
+                            <div class="bg-indigo-50 p-3 rounded-lg text-center">  
+                                <div class="text-indigo-600 font-medium">摄影荣誉</div>  
+                                <div class="text-sm text-gray-600 mt-1">校园摄影展优秀奖</div>  
+                            </div>  
+                        </div>  
+                    </div>  
+                </div>  
+            </div>  
+        </div>  
+    </div>  
+</body>  
+</html>'''  
+  
+# 将HTML内容保存为静态文件  
+with open('my-homepage/index.html', 'w', encoding='utf-8') as f:  
+    f.write(html_content)```
