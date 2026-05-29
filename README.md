@@ -133,6 +133,7 @@ plt.title("Soil test phosphorus (critical concentrations at 95% maximum yield)",
 plt.ylabel("Critical Concentration")
 plt.savefig("图4_土壤磷临界箱线图.png")
 plt.close()
+
 复现图表说明
 图号 对应文件
 图1	图片1.png
